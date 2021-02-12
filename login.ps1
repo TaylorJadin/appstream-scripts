@@ -22,7 +22,14 @@ $deskPath="$homeFolder\Desktop"
 $docsPath="$homeFolder\Documents"
 $downPath="$homeFolder\Downloads"
 
-## Check if D:\PhotonUser\My Files\Desktop exists.  
+## Loop until D:\PhotonUsers 
+$loopPath=( Test-Path $visDesk )
+do 
+{
+    $loopPath=( Test-Path $visDesk )
+    Start-Sleep -s 5
+}
+while ( "$loopPath -eq "False" )
 
 if ( Test-Path $deskPath ){
     Robocopy.exe "$deskPath" "$visDesk" /mir /xf *.lnk
