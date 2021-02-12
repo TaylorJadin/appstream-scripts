@@ -15,9 +15,9 @@
 ## Script copies files from user's Desktop, Downloads, and Documents folders to their home folder.
 ## We do this so their content doesn't accidentally get deleted.
 ## Runs at login in SNCStudent stack
-$visDesk="C:\PhotonUser\Desktop"
-$visDocs="C:\PhotonUser\Documents"
-$visDown="C:\PhotonUser\Downloads"
+$visDesk="D:\PhotonUser\Desktop"
+$visDocs="D:\PhotonUser\Documents"
+$visDown="D:\PhotonUser\Downloads"
 
 ## Content in $homeFolder is stored in an S3 bucket when the user logs out.
 $homeFolder="D:\PhotonUser\My Files\Home Folder"

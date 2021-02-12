@@ -1,6 +1,10 @@
 $repo="https://github.com/TaylorJadin/appstream-scripts/archive/main.zip"
-$zipLoc="C:\AppStream\SessionScripts\RepoCopy\main.zip"
-$exZip="C:\AppStream\SessionScripts\RepoCopy\Scripts"
+$repoLoc="C:\AppStream\SessionScripts\RepoCopy"
+$zipLoc="$repoLoc\main.zip"
+$exZip="$repoLoc\Scripts"
+
+mkdir "$repoLoc"
+mkdir "$exZip"
 
 Invoke-WebRequest -Uri $repo -OutFile $zipLoc
 Expand-Archive -LiteralPath $zipLoc -DestinationPath $exZip

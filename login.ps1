@@ -12,9 +12,9 @@
 ## Nick Plank and Taylor Jadin
 #################################################################################################
 
-$visDesk="C:\PhotonUser\Desktop"
-$visDocs="C:\PhotonUser\Documents"
-$visDown="C:\PhotonUser\Downloads"
+$visDesk="D:\PhotonUser\Desktop"
+$visDocs="D:\PhotonUser\Documents"
+$visDown="D:\PhotonUser\Downloads"
 
 $homeFolder="D:\PhotonUser\My Files\Home Folder"
 
@@ -23,13 +23,20 @@ $docsPath="$homeFolder\Documents"
 $downPath="$homeFolder\Downloads"
 
 ## Loop until D:\PhotonUsers 
-$loopPath=( Test-Path $visDesk )
+
 do 
 {
-    $loopPath=( Test-Path $visDesk )
+    $firstLoop=( Test-Path "$visDesk" )
     Start-Sleep -s 5
 }
-while ( "$loopPath -eq "False" )
+while ( "$firstLoop" -eq "False" )
+
+do
+{
+    $secondLoop=( Test-Path "$deskPath" )
+    Start-Sleep -s 5
+}
+while ( "$secondLoop" -eq "False" )
 
 if ( Test-Path $deskPath ){
     Robocopy.exe "$deskPath" "$visDesk" /mir /xf *.lnk
