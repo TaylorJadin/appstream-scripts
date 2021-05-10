@@ -12,6 +12,8 @@
 ## Nick Plank and Taylor Jadin
 #################################################################################################
 
+
+### Config ###
 $visDesk="D:\PhotonUser\Desktop"
 $visDocs="D:\PhotonUser\Documents"
 $visDown="D:\PhotonUser\Downloads"
@@ -21,49 +23,52 @@ $homeFolder="D:\PhotonUser\My Files\Home Folder"
 $deskPath="$homeFolder\Desktop"
 $docsPath="$homeFolder\Documents"
 $downPath="$homeFolder\Downloads"
+$log="$homeFolder\login.log"
 
-## Loop until D:\PhotonUsers 
 
-do 
-{
-    $firstLoop=( Test-Path "$visDesk" )
-    Start-Sleep -s 5
-}
-while ( "$firstLoop" -eq "False" )
+### Functions ###
+function waitForFSMounts {
+    do 
+    {
+        $firstLoop=( Test-Path "$visDesk" )
+        Start-Sleep -s 5
+    }
+    while ( "$firstLoop" -eq "False" )
 
-do
-{
-    $secondLoop=( Test-Path "$deskPath" )
-    Start-Sleep -s 5
+    do
+    {
+        $secondLoop=( Test-Path "$deskPath" )
+        Start-Sleep -s 5
+    }
+    while ( "$secondLoop" -eq "False" )
 }
-while ( "$secondLoop" -eq "False" )
 
-if ( Test-Path $deskPath ){
-    Robocopy.exe "$deskPath" "$visDesk" /mir /xf *.lnk
+
+function restoreFiles {
+    if ( Test-Path $deskPath ){
+        Robocopy.exe "$deskPath" "$visDesk" /mir /xf *.lnk
+    }
+    else {
+        Write-Host "Must be first login"
+    }
+    if ( Test-Path $docsPath ){
+        Robocopy.exe "$docsPath" "$visDocs" /mir /xf *.lnk
+    }
+    else {
+        Write-Host "Must be first login"
+    }
+    if ( Test-Path $downPath ){
+        Robocopy.exe "$downPath" "$visDown" /mir /xf *.lnk
+    }
+    else {
+        Write-Host "Must be first login"
+    }
 }
-else {
-    Write-Host "Must be first login"
-    #mkdir "$deskPath"
-    #$hideDesk=get-item "$deskPath" -Force
-    #$hideDesk.attributes="Hidden"
-}
-if ( Test-Path $docsPath ){
-    Robocopy.exe "$docsPath" "$visDocs" /mir /xf *.lnk
-}
-else {
-    Write-Host "Must be first login"
-    #mkdir "$docsPath"
-    #$hideDocs=get-item "$docsPath" -Force
-    #$hideDocs.attributes="Hidden"
-}
-if ( Test-Path $downPath ){
-    Robocopy.exe "$downPath" "$visDown" /mir /xf *.lnk
-}
-else {
-    Write-Host "Must be first login"
-    #mkdir "$downPath"
-    #$hideDown=get-item "$downPath" -Force
-    #$hideDesk.attributes="Hidden"
-}
+
+### Main ###
+waitForFSMounts
+createlogLoc
+restoreFiles >> $log
+
 #cscript "C:\Program Files\Microsoft Office\Office16\ospp.vbs" /sethst:ec2-23-20-94-46.compute-1.amazonaws.com
 #cscript "C:\Program Files\Microsoft Office\Office16\ospp.vbs" /act
