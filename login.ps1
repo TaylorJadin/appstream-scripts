@@ -65,5 +65,5 @@ else {
     #$hideDown=get-item "$downPath" -Force
     #$hideDesk.attributes="Hidden"
 }
-cscript "C:\Program Files\Microsoft Office\Office16\ospp.vbs" /sethst:ec2-23-20-94-46.compute-1.amazonaws.com
-cscript "C:\Program Files\Microsoft Office\Office16\ospp.vbs" /act
+#cscript "C:\Program Files\Microsoft Office\Office16\ospp.vbs" /sethst:ec2-23-20-94-46.compute-1.amazonaws.com
+#cscript "C:\Program Files\Microsoft Office\Office16\ospp.vbs" /act
