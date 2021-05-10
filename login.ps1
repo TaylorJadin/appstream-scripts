@@ -67,7 +67,8 @@ function restoreFiles {
 
 ### Main ###
 waitForFSMounts
-restoreFiles >> $log
+restoreFiles
+#restoreFiles >> $log
 
 #cscript "C:\Program Files\Microsoft Office\Office16\ospp.vbs" /sethst:ec2-23-20-94-46.compute-1.amazonaws.com
 #cscript "C:\Program Files\Microsoft Office\Office16\ospp.vbs" /act
