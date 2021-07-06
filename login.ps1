@@ -14,11 +14,18 @@
 
 
 ### Config ###
-$visDesk="D:\PhotonUser\Desktop"
-$visDocs="D:\PhotonUser\Documents"
-$visDown="D:\PhotonUser\Downloads"
+# Apparently D: is where Amazon puts the home folder if you have settings profile enabled.
+#$visDesk="D:\PhotonUser\Desktop"
+#$visDocs="D:\PhotonUser\Documents"
+#$visDown="D:\PhotonUser\Downloads"
 
-$homeFolder="D:\PhotonUser\My Files\Home Folder"
+#$homeFolder="D:\PhotonUser\My Files\Home Folder"
+
+$visDesk="C:\PhotonUser\Desktop"
+$visDocs="C:\PhotonUser\Documents"
+$visDown="C:\PhotonUser\Downloads"
+
+$homeFolder="C:\PhotonUser\My Files\Home Folder"
 
 $deskPath="$homeFolder\Desktop"
 $docsPath="$homeFolder\Documents"
