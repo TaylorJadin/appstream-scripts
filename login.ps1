@@ -21,11 +21,11 @@
 
 #$homeFolder="D:\PhotonUser\My Files\Home Folder"
 
-$visDesk="C:\PhotonUser\Desktop"
-$visDocs="C:\PhotonUser\Documents"
-$visDown="C:\PhotonUser\Downloads"
+$visDesk="C:\Users\PhotonUser\Desktop"
+$visDocs="C:\Users\PhotonUser\Documents"
+$visDown="C:\Users\PhotonUser\Downloads"
 
-$homeFolder="C:\PhotonUser\My Files\Home Folder"
+$homeFolder="C:\Users\PhotonUser\My Files\Home Folder"
 
 $deskPath="$homeFolder\Desktop"
 $docsPath="$homeFolder\Documents"
