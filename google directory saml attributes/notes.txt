@@ -1,0 +1,7 @@
+My script is based off the code at the bottom of this page: https://aws.amazon.com/blogs/desktop-and-application-streaming/setting-up-g-suite-saml-2-0-federation-with-amazon-appstream-2-0/
+
+Check out the python quickstart to get something authorized: https://developers.google.com/admin-sdk/directory/v1/quickstart/python
+
+My quickstart project is already under my admin account.
+
+Need to install these with pip: google-api-python-client google-auth-httplib2 google-auth-oauthlib
