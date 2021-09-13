@@ -46,19 +46,25 @@ function waitForFSMounts {
 
 function restoreFiles {
     if ( Test-Path $deskPath ){
-        Robocopy.exe "$deskPath" "$visDesk" /mir /xf *.lnk
+        Robocopy.exe "$deskPath" "$visDesk" /s /xf *.lnk
+        $hideDesk=get-item "$deskPath" -Force
+        $hideDesk.attributes="Hidden"
     }
     else {
         Write-Host "Must be first login"
     }
     if ( Test-Path $docsPath ){
-        Robocopy.exe "$docsPath" "$visDocs" /mir /xf *.lnk
+        Robocopy.exe "$docsPath" "$visDocs" /s /xf *.lnk
+        $hideDocs=get-item "$docsPath" -Force
+        $hideDocs.attributes="Hidden"
     }
     else {
         Write-Host "Must be first login"
     }
     if ( Test-Path $downPath ){
-        Robocopy.exe "$downPath" "$visDown" /mir /xf *.lnk
+        Robocopy.exe "$downPath" "$visDown" /s /xf *.lnk
+        $hideDown=get-item "$downPath" -Force
+        $hideDesk.attributes="Hidden"
     }
     else {
         Write-Host "Must be first login"
