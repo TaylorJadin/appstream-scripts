@@ -1,0 +1,1 @@
+"C:\Program Files\rclone\rclone.exe" --no-console mount ArcGISClass: X:
