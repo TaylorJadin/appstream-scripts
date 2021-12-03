@@ -87,8 +87,7 @@ function restoreFiles {
 waitForFSMounts
 restoreFiles
 mkdir "C:\Users\PhotonUser\AppData\Roaming\rclone"
-mv "$exZip\appstream-scripts-main\ArcClassDriveMount.bat" "C:Users\PhotonUser\"
-mv "$exZip\appstream-scripts-main\rclone.conf" "C:\Users\PhotonUser\AppData\Roaming\rclone\"
+
 
 #restoreFiles >> $log
 
