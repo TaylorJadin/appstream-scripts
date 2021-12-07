@@ -87,7 +87,8 @@ function restoreFiles {
 waitForFSMounts
 restoreFiles
 mkdir "C:\Users\PhotonUser\AppData\Roaming\rclone"
-
+$rcloneConf="C:\Users\PhotonUser\AppData\Roaming\rclone"
+mv "C:\AppStream\SessionScripts\RepoCopy\Scripts\appstream-scripts-main\rclone.conf" "$rcloneConf"
 
 #restoreFiles >> $log
 
